@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>CADASTRO</h2>
+
+@using asp_web_framewrk.Models;
+
+@{ 
+    //asp_web_framewrk.Models.connector co = new asp_web_framewrk.Models.connector();
+
+    string numberId = Request.Params.Get("numberId");
+    string NameId = Request.Params.Get("NameId");
+
+    Response.Output.WriteLine(numberId);
+    Response.Output.WriteLine(NameId);
+
+    // arrumar
+    connector.cmd.CommandText = "INSERT INTO sys_config(variable, value) VALUES ('" + numberId + "', '" + NameId + "')";
+}
+
+<form name="catr" action="~/Views/Home/View.cshtml" method="get">
+    <table>
+        <tr>ID:<td> <input name="numberId" type="text" /> </td></tr>
+        <tr>NAME:<td> <input name="NameId" type="text" /> </td></tr>
+
+        <tr><td> <input name="UpdateButton" type="submit" /> </td></tr>
+
+    </table>
+
+</form>
